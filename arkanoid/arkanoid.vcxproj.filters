@@ -44,9 +44,6 @@
     <ClInclude Include="blocks.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="bonus.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="game.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>

@@ -1,6 +1,5 @@
 #pragma once
 #include "window.h"
-//#include "paddle.h"
 constexpr double block_width{ 60.f }, block_height{ 20.f };
 constexpr int count_blocksX{ 11 }, count_blocksY{ 4 };
 constexpr int infinite_block{ 4 }, max_lives{ 3 };

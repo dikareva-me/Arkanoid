@@ -1,15 +1,6 @@
 #include "ball.h"
 
 int player_score{ 0 };
-//
-//template <class T1, class T2>
-//bool isColliding(T1& objA, T2& objB)
-//{
-//    return objA.getRightSide() >= objB.getLeftSide() &&
-//        objA.getLeftSide() <= objB.getRightSide() &&
-//        objA.getBottomSide() >= objB.getTopSide() &&
-//        objA.getTopSide() <= objB.getBottomSide();
-//}
 
 
 void Ball::update() {
@@ -26,7 +17,7 @@ void Ball::update() {
         velocity.y = -abs_velocity;
         if (!can_die)
             --player_score;
-        //else is_dead = true;
+        else is_dead = true;
     }
 }
 
@@ -54,23 +45,11 @@ Ball& solveCollision(T1& objA, Ball& ball) {
     double minOverlapX{ ballFromLeft ? overlapLeft : overlapRight };
     double minOverlapY{ ballFromTop ? overlapTop : overlapBottom };
 
-    if (abs(minOverlapX) < abs(minOverlapY)) {
-       // ball.velocity.x = -ball.velocity.x;
+    if (abs(minOverlapX) < abs(minOverlapY))
         ball.velocity.x = ballFromLeft ? -ball.abs_velocity : ball.abs_velocity;
-
-       /* if (ballFromLeft)
-            ball.ball_shape.move(overlapLeft, 0);
-        else  ball.ball_shape.move(overlapRight, 0);*/
-    }
-    else {
-       // ball.velocity.y = -ball.velocity.y;
+    else
         ball.velocity.y = ballFromTop ? -ball.abs_velocity : ball.abs_velocity;
 
-      /*  if (ballFromTop)
-            ball.ball_shape.move(-overlapTop, 0);
-        else  ball.ball_shape.move(overlapBottom, 0);*/
-
-    }
     return ball;
     
 }
@@ -83,22 +62,7 @@ void Ball::checkCollision(Block& block) {
         --block.num_lives;
     }
     *this = solveCollision(block, *this);
-    
-    /*double overlapLeft{ getRightSide() - block.getLeftSide() };
-    double overlapRight{ block.getRightSide() - getLeftSide() };
-    double overlapTop{ getBottomSide() - block.getTopSide() };
-    double overlapBottom{ block.getBottomSide() - getTopSide() };
-
-    bool ballFromLeft(abs(overlapLeft) < abs(overlapRight));
-    bool ballFromTop(abs(overlapTop) < abs(overlapBottom));
-
-    double minOverlapX{ ballFromLeft ? overlapLeft : overlapRight };
-    double minOverlapY{ ballFromTop ? overlapTop : overlapBottom };
-
-    if (abs(minOverlapX) < abs(minOverlapY))
-        velocity.x = ballFromLeft ? -abs_velocity : abs_velocity;
-    else
-        velocity.y = ballFromTop ? -abs_velocity : abs_velocity;*/
+ 
 }
 
 

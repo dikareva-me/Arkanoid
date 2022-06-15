@@ -140,7 +140,6 @@ bool Game::run() {
 	final_score.setFillColor(Color::Red);
 	final_score.setStyle(Text::Bold);
 
-
 	while (true) {
 		window.clear(Color::Black);
 
@@ -150,8 +149,6 @@ bool Game::run() {
 		window.draw(final_score);
 		window.display();
 	}
-
-
 
 	return true;
 }
